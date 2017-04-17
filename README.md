@@ -1,5 +1,20 @@
 <p align="center">
-    <img src="RepoMedia/example.gif" width="250" max-width="50%" />
+    <img src="RepoMedia/example.gif" width="200" max-width="50%" />
+</p>
+
+<p align="center">
+    <a href="https://cocoapods.org/pods/ContourProgressView">
+        <img src="https://img.shields.io/cocoapods/v/SquishButton.svg" alt="CocoaPods" />
+    </a>
+    <a href="http://cocoapods.org/pods/SquishButton">
+        <img src="https://img.shields.io/cocoapods/l/SquishButton.svg?style=flat" alt="License" />
+    </a>
+    <a href="http://cocoapods.org/pods/SquishButton">
+        <img src="https://img.shields.io/cocoapods/p/SquishButton.svg?style=flat" alt="Platform" />
+    </a>
+    <a href="https://twitter.com/FBajo">
+        <img src="https://img.shields.io/badge/contact-@FBajo-blue.svg?style=flat" alt="Twitter: @FBajo" />
+    </a>
 </p>
 
 ## About
@@ -46,7 +61,7 @@ ContourProgressView is available through [CocoaPods](http://cocoapods.org). To i
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ContourProgressView', :git => 'https://github.com/Bajocode/ContourProgressView', :tag => '1.0.0'
+pod 'ContourProgressView'
 ```
 
 ## Author
