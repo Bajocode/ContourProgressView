@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     fileprivate var rectProgressView: ContourProgressView!
+    private lazy var session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: .main)
+    }()
     
     
     // MARK: - Lifecycle
@@ -31,6 +35,9 @@ class ViewController: UIViewController {
         rectProgressView.progressTintColor = .black
         rectProgressView.lineWidth = 4
         view.addSubview(rectProgressView)
+        
+        // A quick download example demonstrating progress & bytes written
+        session.downloadTask(with: URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!).resume()
     }
     
     
@@ -44,4 +51,21 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation
 }
+
+
+// MARK: - URLSessionDownloadDelegate
+
+extension ViewController: URLSessionDownloadDelegate {
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        // Session is configured to shedule delegate calls on the main thread
+        let currentProgress = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
+        rectProgressView.progress = currentProgress
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print("Download complete")
+    }
+}
+
 
