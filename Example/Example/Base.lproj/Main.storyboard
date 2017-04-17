@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,8 +21,89 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZo-19-GpR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f56-Tv-XNM" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="666"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rT-fs-9qs" customClass="ContourProgressView" customModule="ContourProgressView">
+                                                <rect key="frame" x="32" y="178" width="310" height="310"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7rT-fs-9qs" secondAttribute="height" multiplier="1:1" id="pSB-kM-yoh"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRect" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isLineCapSquared" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
+                                                        <color key="value" white="0.0" alpha="0.047624143835616438" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJQ-kc-4jc">
+                                                <rect key="frame" x="32" y="178" width="310" height="310"/>
+                                                <connections>
+                                                    <action selector="downloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwQ-fT-FLX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOWNLOAD!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjN-li-2jB">
+                                                <rect key="frame" x="84" y="313" width="206" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="centerY" secondItem="f56-Tv-XNM" secondAttribute="centerY" id="1WY-0l-aQq"/>
+                                            <constraint firstAttribute="trailing" secondItem="7rT-fs-9qs" secondAttribute="trailing" constant="32" id="5Ii-SW-gOF"/>
+                                            <constraint firstItem="jjN-li-2jB" firstAttribute="centerY" secondItem="f56-Tv-XNM" secondAttribute="centerY" id="78U-fM-2ZT"/>
+                                            <constraint firstItem="jjN-li-2jB" firstAttribute="centerX" secondItem="f56-Tv-XNM" secondAttribute="centerX" id="ATf-Y0-PdG"/>
+                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="bottom" secondItem="7rT-fs-9qs" secondAttribute="bottom" id="FIf-Bi-DVN"/>
+                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="trailing" secondItem="7rT-fs-9qs" secondAttribute="trailing" id="V4j-FI-hst"/>
+                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="top" secondItem="7rT-fs-9qs" secondAttribute="top" id="Vwy-Ji-XHB"/>
+                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="leading" secondItem="f56-Tv-XNM" secondAttribute="leading" constant="32" id="dnu-xL-YpO"/>
+                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="leading" secondItem="7rT-fs-9qs" secondAttribute="leading" id="u0b-fi-zyW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f56-Tv-XNM" firstAttribute="centerY" secondItem="eZo-19-GpR" secondAttribute="centerY" id="3it-nm-pBF"/>
+                                    <constraint firstItem="f56-Tv-XNM" firstAttribute="leading" secondItem="eZo-19-GpR" secondAttribute="leading" id="PqA-Sc-uEf"/>
+                                    <constraint firstAttribute="bottom" secondItem="f56-Tv-XNM" secondAttribute="bottom" id="Uet-0y-0XO"/>
+                                    <constraint firstItem="f56-Tv-XNM" firstAttribute="top" secondItem="eZo-19-GpR" secondAttribute="top" id="cvI-bE-iaG"/>
+                                    <constraint firstAttribute="trailing" secondItem="f56-Tv-XNM" secondAttribute="trailing" id="sSp-TH-ITO"/>
+                                    <constraint firstItem="f56-Tv-XNM" firstAttribute="centerX" secondItem="eZo-19-GpR" secondAttribute="centerX" id="shM-ML-LNu"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eZo-19-GpR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ljh-rf-J1F"/>
+                            <constraint firstItem="eZo-19-GpR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TmG-v3-dwF"/>
+                            <constraint firstItem="eZo-19-GpR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xyg-1f-Hos"/>
+                            <constraint firstAttribute="trailing" secondItem="eZo-19-GpR" secondAttribute="trailing" id="cgx-fF-wjC"/>
+                            <constraint firstAttribute="bottom" secondItem="eZo-19-GpR" secondAttribute="bottom" id="h97-61-u87"/>
+                            <constraint firstItem="eZo-19-GpR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ogP-Zk-oT9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="f56-Tv-XNM" id="N2C-QE-zgc"/>
+                        <outlet property="downloadLabel" destination="jjN-li-2jB" id="QTs-yl-eW8"/>
+                        <outlet property="ovalProgressView" destination="7rT-fs-9qs" id="xmL-s5-vFh"/>
+                        <outlet property="scrollView" destination="eZo-19-GpR" id="Ucu-LX-yrR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
