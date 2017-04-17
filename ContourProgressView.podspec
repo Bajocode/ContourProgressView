@@ -84,7 +84,7 @@ follows the edges of a given frame and can be either oval or rectangular."
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Bajocode/ContourProgressView", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/Bajocode/ContourProgressView.git", :tag => "1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

@@ -374,6 +374,7 @@
 				22EA08D11EA5090A005CFCAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
