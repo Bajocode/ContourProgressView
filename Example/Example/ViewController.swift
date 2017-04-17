@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     // MARK: - Methods
     
     private func configure() {
-        // ScrollView
         scrollView.delegate = self
         
         // Progress
@@ -56,7 +55,7 @@ class ViewController: UIViewController {
         rectProgressView.isLineCapSquared = true
         rectProgressView.trackTintColor = .clear
         rectProgressView.progressTintColor = .black
-        rectProgressView.lineWidth = 4
+        rectProgressView.lineWidth = 3
         view.addSubview(rectProgressView)
     }
     
@@ -95,11 +94,15 @@ extension ViewController: URLSessionDownloadDelegate {
         let currentProgress = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
         rectProgressView.progress = currentProgress
         ovalProgressView.progress = currentProgress
+        downloadLabel.textColor = .lightGray
         downloadLabel.text = "\(Int(currentProgress * 100)) %"
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        // Completion updates
         downloadLabel.text = "COMPLETE!"
+        self.downloadLabel.textColor = .black
+        
         // Remove old file
         do {
             try FileManager.default.removeItem(at: trailerLocation)
