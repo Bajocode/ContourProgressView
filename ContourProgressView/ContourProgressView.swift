@@ -108,7 +108,7 @@ public class ContourProgressView: UIView {
     }
     
     private func frameForContour() -> CGRect {
-        // CALayer.lineWidth is by default centered on the line
+        // CALayer lineWidth is by default centered on the line
         let lineWidthHalf = lineWidth / 2
         return bounds.insetBy(dx: lineWidthHalf, dy: lineWidthHalf)
     }
