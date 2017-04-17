@@ -99,7 +99,39 @@ extension ViewController: URLSessionDownloadDelegate {
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("Download complete")
+        downloadLabel.text = "COMPLETE!"
+        // Remove old file
+        do {
+            try FileManager.default.removeItem(at: trailerLocation)
+        } catch {
+            print("Non-fatal: file does not exist")
+        }
+        
+        // Copy file from temporary to permanent location in app’s sandbox container
+        do {
+            try FileManager.default.copyItem(at: location, to: trailerLocation)
+            // Configue an AVPlayeController
+            let player = AVPlayer(url: trailerLocation)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.modalTransitionStyle = .crossDissolve
+            playerViewController.player = player
+            
+            // Present AVPlayer after animation
+            UIView.animate(withDuration: 1.0, animations: {
+                self.contentView.alpha = CGFloat(0.0)
+            }, completion: { (_) in
+                self.present(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                    // Reset values
+                    self.contentView.alpha = 1.0
+                    self.rectProgressView.progress = 0.0
+                    self.ovalProgressView.progress = 0.0
+                    self.downloadLabel.text = "DOWNLOAD!"
+                }
+            })
+        } catch {
+            print(error)
+        }
     }
 }
 
