@@ -1,24 +1,10 @@
 <p align="center">
-    <img src="RepoMedia/example.gif" width="200" max-width="50%" />
-</p>
-
-<p align="center">
-    <a href="https://cocoapods.org/pods/ContourProgressView">
-        <img src="https://img.shields.io/cocoapods/v/SquishButton.svg" alt="CocoaPods" />
-    </a>
-    <a href="http://cocoapods.org/pods/SquishButton">
-        <img src="https://img.shields.io/cocoapods/l/SquishButton.svg?style=flat" alt="License" />
-    </a>
-    <a href="http://cocoapods.org/pods/SquishButton">
-        <img src="https://img.shields.io/cocoapods/p/SquishButton.svg?style=flat" alt="Platform" />
-    </a>
-    <a href="https://twitter.com/FBajo">
-        <img src="https://img.shields.io/badge/contact-@FBajo-blue.svg?style=flat" alt="Twitter: @FBajo" />
-    </a>
+    <img src="RepoMedia/example.gif" width="600" />
 </p>
 
 ## About
 `ContourProgressView` depicts the progress of a task over time by following the edges of a view.
+The progress value can be connected to anything, even a `UIScrollView.contentOffset` as depicted above.
 
 ## Usage with Storyboard
 Drag a UIView onto the canvas and connect it to the `ContourProgressView` Class in the
