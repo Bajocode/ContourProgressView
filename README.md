@@ -23,8 +23,8 @@ progress of a task over time. In contrast with Apple's `UIProgressView`, a `Cont
 follows the edges of a view.
 
 ## Usage with Storyboard
-Drag a UIView onto the canvas and connect it to the ContourProgressView Class in the
-Identity Inspector. Adjust properties in the Attribute Inspector to manage the design.
+Drag a UIView onto the canvas and connect it to the `ContourProgressView` Class in the
+Identity Inspector. Make sure to set the module to `ContourProgressView` and adjust properties in the Attribute Inspector to manage the design.
 <p align="center">
     <img src="RepoMedia/StoryBoardSetup.png" width=100% />
 </p>
