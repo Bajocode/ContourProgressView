@@ -27,10 +27,10 @@ public class ContourProgressView: UIView {
     public var lineWidth: CGFloat = 2.0 { didSet { setNeedsLayout() } }
     
     @IBInspectable
-    public var progressTintColor: UIColor = .blue { didSet{ setNeedsLayout() } }
+    public var progressTintColor: UIColor = .black { didSet{ setNeedsLayout() } }
     
     @IBInspectable
-    public var trackTintColor: UIColor = .gray { didSet { setNeedsLayout() } }
+    public var trackTintColor: UIColor = .lightGray { didSet { setNeedsLayout() } }
     
     @IBInspectable
     public var progress: CGFloat {

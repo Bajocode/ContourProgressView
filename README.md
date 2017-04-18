@@ -18,9 +18,7 @@
 </p>
 
 ## About
-`ContourProgressView` is a `UIView` subclass that can be used to depict the
-progress of a task over time. In contrast with Apple's `UIProgressView`, a `ContourProgressView`
-follows the edges of a view.
+`ContourProgressView` depicts the progress of a task over time by following the edges of a view.
 
 ## Usage with Storyboard
 Drag a UIView onto the canvas and connect it to the `ContourProgressView` Class in the
@@ -30,39 +28,43 @@ Identity Inspector. Make sure to set the module to `ContourProgressView` and adj
 </p>
 
 ## Usage with Code
-A full screen rectangular progress view, with the `public` properties explained:
 ```swift
-//// A convenience initializer for specifying the shape
 let rectProgressView = ContourProgressView(frame: view.bounds, isRect: true)
-
-//// The shape of the endpoints of the progress line (squared or rounded)
-rectProgressView.isLineCapSquared = true
-
-//// The color of the underlying 'track' line
-rectProgressView.trackTintColor = .clear
-
-//// The color of the progress line
-rectProgressView.progressTintColor = .white
-
-//// The line width of both the track and progress line
-rectProgressView.lineWidth = 2
-
-view.addSubview(rectProgressView)
-
-//// Update the progress (download progress, scrollview offset etc.)
 rectProgressView.progress = totalBytesWritten / totalBytesExpectedToWrite
+```
+
+## Customization
+```swift
+public var isRect: Bool = true                      // The shape of the progress line (rect or oval)
+public var isLineCapSquared: Bool = true            // The shape of the endpoints of the progress line (squared or rounded)
+public var lineWidth: CGFloat = 2.0                 // The line width of both the track and progress line
+public var progressTintColor: UIColor = .black      // The color of the progress line
+public var trackTintColor: UIColor = .lightGray     // The color of the underlying 'track' line
 ```
 
 ## Requirements
 iOS 8.0 and Swift 3.0.
 
 ## Installation
-ContourProgressView is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+
+### CocoaPods
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using 3rd-party
+libraries like `ContourProgressView` in your projects. First, add the following line to your [Podfile](http://guides.cocoapods.org/using/using-cocoapods.html):
 
 ```ruby
 pod 'ContourProgressView'
 ```
+
+Second, install `ContourProgressView` into your project:
+
+```ruby
+pod install
+```
+
+### Manually
+
+* Drag the `ContourProgressView/ContourProgressView` folder into your project.
+* Take care that `ContourProgressView.bundle` is added to `Targets->Build Phases->Copy Bundle Resources`.
 
 ## Author
 
