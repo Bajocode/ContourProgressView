@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,61 +19,63 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZo-19-GpR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZo-19-GpR">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f56-Tv-XNM" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="666" height="374"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rT-fs-9qs" customClass="ContourProgressView" customModule="ContourProgressView">
-                                                <rect key="frame" x="32" y="178" width="310" height="310"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJQ-kc-4jc">
+                                                <rect key="frame" x="183" y="112" width="300" height="150"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="7rT-fs-9qs" secondAttribute="height" multiplier="1:1" id="pSB-kM-yoh"/>
+                                                    <constraint firstAttribute="height" constant="150" id="2Vx-Xw-KeT"/>
+                                                    <constraint firstAttribute="width" constant="300" id="9pM-5v-hA6"/>
                                                 </constraints>
+                                                <state key="normal" backgroundImage="DownloadButton"/>
+                                                <connections>
+                                                    <action selector="downloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwQ-fT-FLX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOWNLOAD!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjN-li-2jB">
+                                                <rect key="frame" x="230" y="167" width="206" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rT-fs-9qs" customClass="ContourProgressView" customModule="ContourProgressView">
+                                                <rect key="frame" x="66.5" y="38" width="533" height="299"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRect" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isLineCapSquared" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                        <real key="value" value="7"/>
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
                                                         <color key="value" white="0.0" alpha="0.047624143835616438" colorSpace="calibratedWhite"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="value" red="0.85882352941176465" green="0.4392156862745098" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="progress">
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJQ-kc-4jc">
-                                                <rect key="frame" x="32" y="178" width="310" height="310"/>
-                                                <connections>
-                                                    <action selector="downloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwQ-fT-FLX"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOWNLOAD!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjN-li-2jB">
-                                                <rect key="frame" x="84" y="313" width="206" height="39"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="centerY" secondItem="f56-Tv-XNM" secondAttribute="centerY" id="1WY-0l-aQq"/>
-                                            <constraint firstAttribute="trailing" secondItem="7rT-fs-9qs" secondAttribute="trailing" constant="32" id="5Ii-SW-gOF"/>
+                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="centerY" secondItem="f56-Tv-XNM" secondAttribute="centerY" id="0yD-z3-xdF"/>
                                             <constraint firstItem="jjN-li-2jB" firstAttribute="centerY" secondItem="f56-Tv-XNM" secondAttribute="centerY" id="78U-fM-2ZT"/>
                                             <constraint firstItem="jjN-li-2jB" firstAttribute="centerX" secondItem="f56-Tv-XNM" secondAttribute="centerX" id="ATf-Y0-PdG"/>
-                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="bottom" secondItem="7rT-fs-9qs" secondAttribute="bottom" id="FIf-Bi-DVN"/>
-                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="trailing" secondItem="7rT-fs-9qs" secondAttribute="trailing" id="V4j-FI-hst"/>
-                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="top" secondItem="7rT-fs-9qs" secondAttribute="top" id="Vwy-Ji-XHB"/>
-                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="leading" secondItem="f56-Tv-XNM" secondAttribute="leading" constant="32" id="dnu-xL-YpO"/>
-                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="leading" secondItem="7rT-fs-9qs" secondAttribute="leading" id="u0b-fi-zyW"/>
+                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="width" secondItem="f56-Tv-XNM" secondAttribute="width" multiplier="0.8" id="Rg8-wo-FMZ"/>
+                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="centerX" secondItem="f56-Tv-XNM" secondAttribute="centerX" id="a5H-Am-Zfy"/>
+                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="centerY" secondItem="f56-Tv-XNM" secondAttribute="centerY" id="c0d-de-InW"/>
+                                            <constraint firstItem="7rT-fs-9qs" firstAttribute="height" secondItem="f56-Tv-XNM" secondAttribute="height" multiplier="0.8" id="edD-YL-Bct"/>
+                                            <constraint firstItem="oJQ-kc-4jc" firstAttribute="centerX" secondItem="f56-Tv-XNM" secondAttribute="centerX" id="h9q-Ef-a1S"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -106,6 +108,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="44.527736131934034" y="40.799999999999997"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DownloadButton" width="300" height="150"/>
+    </resources>
 </document>

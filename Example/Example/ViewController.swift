@@ -54,8 +54,8 @@ class ViewController: UIViewController {
         rectProgressView = ContourProgressView(frame: view.bounds, isRect: true)
         rectProgressView.isLineCapSquared = true
         rectProgressView.trackTintColor = .clear
-        rectProgressView.progressTintColor = .black
-        rectProgressView.lineWidth = 3
+        rectProgressView.progressTintColor = view.tintColor
+        rectProgressView.lineWidth = 10
         view.addSubview(rectProgressView)
     }
     
@@ -77,8 +77,9 @@ class ViewController: UIViewController {
 extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // ContourProgressView progress does not go beyond 1.0
-        let maxOffset: CGFloat = -150
-        let relativeProgress = CGFloat(scrollView.contentOffset.y / maxOffset)
+        print(scrollView.contentOffset.x)
+        let maxOffset: CGFloat = 180
+        let relativeProgress = CGFloat(scrollView.contentOffset.x / maxOffset)
         rectProgressView.progress = relativeProgress
         ovalProgressView.progress = relativeProgress
     }
@@ -94,14 +95,12 @@ extension ViewController: URLSessionDownloadDelegate {
         let currentProgress = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
         rectProgressView.progress = currentProgress
         ovalProgressView.progress = currentProgress
-        downloadLabel.textColor = .lightGray
         downloadLabel.text = "\(Int(currentProgress * 100)) %"
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         // Completion updates
         downloadLabel.text = "COMPLETE!"
-        self.downloadLabel.textColor = .black
         
         // Remove old file
         do {
