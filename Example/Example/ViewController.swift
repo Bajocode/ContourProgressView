@@ -103,11 +103,8 @@ extension ViewController: URLSessionDownloadDelegate {
         downloadLabel.text = "COMPLETE!"
         
         // Remove old file
-        do {
-            try FileManager.default.removeItem(at: trailerLocation)
-        } catch {
-            print("Non-fatal: file does not exist")
-        }
+        _ = try? FileManager.default.removeItem(at: trailerLocation)
+
         
         // Copy file from temporary to permanent location in app’s sandbox container
         do {
