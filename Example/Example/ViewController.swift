@@ -102,35 +102,34 @@ extension ViewController: URLSessionDownloadDelegate {
         // Completion updates
         downloadLabel.text = "COMPLETE!"
         
-        // Remove old file
+        // Remove old file and copy new form temp to file system
         _ = try? FileManager.default.removeItem(at: trailerLocation)
-
-        
-        // Copy file from temporary to permanent location in app’s sandbox container
         do {
             try FileManager.default.copyItem(at: location, to: trailerLocation)
-            // Configue an AVPlayeController
-            let player = AVPlayer(url: trailerLocation)
-            let playerViewController = AVPlayerViewController()
-            playerViewController.modalTransitionStyle = .crossDissolve
-            playerViewController.player = player
-            
-            // Present AVPlayer after animation
-            UIView.animate(withDuration: 1.0, animations: {
-                self.contentView.alpha = CGFloat(0.0)
-            }, completion: { (_) in
-                self.present(playerViewController, animated: true) {
-                    playerViewController.player!.play()
-                    // Reset values
-                    self.contentView.alpha = 1.0
-                    self.rectProgressView.progress = 0.0
-                    self.ovalProgressView.progress = 0.0
-                    self.downloadLabel.text = "DOWNLOAD!"
-                }
-            })
         } catch {
-            print(error)
+            preconditionFailure("Trailer expected to be copied to file system")
         }
+        
+        // Configue an AVPlayeController
+        let player = AVPlayer(url: trailerLocation)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.modalTransitionStyle = .crossDissolve
+        playerViewController.player = player
+        
+        // Present AVPlayer in the animation callback
+        UIView.animate(withDuration: 1.0, animations: {
+            self.contentView.alpha = CGFloat(0.0)
+        }, completion: { (_) in
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
+                // Reset values
+                self.contentView.alpha = 1.0
+                self.rectProgressView.progress = 0.0
+                self.ovalProgressView.progress = 0.0
+                self.downloadLabel.text = "DOWNLOAD!"
+            }
+        })
+
     }
 }
 
